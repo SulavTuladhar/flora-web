@@ -1,6 +1,6 @@
-import ButtonComponent from "@/design-system/components/button.component";
-import CardComponent from "@/design-system/components/card";
 import DefaultLayout from "@/layouts/default";
+import ButtonComponent from "@/packages/design-system/components/button.component";
+import CardComponent from "@/packages/design-system/components/card";
 
 export default function IndexPage() {
   return (

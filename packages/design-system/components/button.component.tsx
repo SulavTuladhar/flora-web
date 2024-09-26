@@ -1,6 +1,6 @@
+import { cn } from "@/packages/core/tailwindMerge";
 import { Button } from "@nextui-org/button";
 import { ReactNode } from "react";
-import { cn } from "../core/tailwindMerge";
 export interface ButtonProps {
   color?:
     | "default"
@@ -26,6 +26,7 @@ export interface ButtonProps {
   startContent?: ReactNode;
   classname?: string;
   label: string;
+  onClick: () => void;
 }
 export default function ButtonComponent({
   variant = "solid",
@@ -38,6 +39,7 @@ export default function ButtonComponent({
   startContent = undefined,
   classname,
   label,
+  onClick,
 }: Readonly<ButtonProps>) {
   return (
     <Button
@@ -50,6 +52,7 @@ export default function ButtonComponent({
       endContent={endContent}
       startContent={startContent}
       className={cn("px-4 py-2 ", classname)}
+      onClick={onClick}
     >
       {label}
     </Button>

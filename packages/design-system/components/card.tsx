@@ -2,7 +2,7 @@ import { Button, ButtonProps } from "@nextui-org/button";
 import { Card, CardFooter } from "@nextui-org/card";
 import Image from "next/image";
 import ButtonComponent from "./button.component";
-import { cn } from "../core/tailwindMerge";
+import { cn } from "@/packages/core/tailwindMerge";
 
 interface CardProps extends ButtonProps {
   imgPath: string;
