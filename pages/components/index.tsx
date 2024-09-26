@@ -1,6 +1,9 @@
+import { isNotEmptyObject } from "@/packages/core/utils/util.functions";
 import FormContainer from "@/packages/design-system/components/Form/Form";
-import InputComponent from "@/packages/design-system/components/Input/Input";
-import React from "react";
+import InputComponent, {
+  InputProps,
+} from "@/packages/design-system/components/Input/Input";
+import React, { useState } from "react";
 import { MdAlternateEmail } from "react-icons/md";
 import { MdSearch } from "react-icons/md";
 
@@ -26,9 +29,6 @@ const InputExample = () => {
           label="Input with error"
           errorMessage={"something went wrong"}
           isInvalid={true}
-          onChange={function (): void {
-            throw new Error("Function not implemented.");
-          }}
           onValueChange={function (value: string): void {
             throw new Error("Function not implemented.");
           }}
@@ -40,9 +40,6 @@ const InputExample = () => {
           label="Input without Error"
           errorMessage={"something went wrong"}
           isInvalid={false}
-          onChange={function (): void {
-            throw new Error("Function not implemented.");
-          }}
           onValueChange={function (value: string): void {
             throw new Error("Function not implemented.");
           }}
@@ -54,9 +51,6 @@ const InputExample = () => {
           label="Input with end content"
           errorMessage={"something went wrong"}
           isInvalid={false}
-          onChange={function (): void {
-            throw new Error("Function not implemented.");
-          }}
           onValueChange={function (value: string): void {
             throw new Error("Function not implemented.");
           }}
@@ -73,9 +67,6 @@ const InputExample = () => {
           label=""
           errorMessage={"something went wrong"}
           isInvalid={false}
-          onChange={function (): void {
-            throw new Error("Function not implemented.");
-          }}
           onValueChange={function (value: string): void {
             throw new Error("Function not implemented.");
           }}
@@ -91,34 +82,24 @@ const InputExample = () => {
 };
 
 const FormExample = () => {
-  const inputs = [
+  const [output, setOutput] = useState({});
+
+  const inputs: InputProps[] = [
     {
       placeholder: "",
       label: "Input with error",
       errorMessage: "something went wrong",
       isInvalid: true,
-      onChange: function (): void {
-        throw new Error("Function not implemented.");
-      },
-      onValueChange: function (value: string): void {
-        throw new Error("Function not implemented.");
-      },
       value: "",
-      name: "",
+      name: "Input with error",
     },
     {
       placeholder: "",
       label: "Input without error",
       errorMessage: "something went wrong",
       isInvalid: false,
-      onChange: function (): void {
-        throw new Error("Function not implemented.");
-      },
-      onValueChange: function (value: string): void {
-        throw new Error("Function not implemented.");
-      },
       value: "",
-      name: "",
+      name: "Input without error",
     },
   ];
   return (
@@ -127,11 +108,19 @@ const FormExample = () => {
       <FormContainer
         inputs={inputs}
         columns={0}
-        onSubmit={function (): void {
-          throw new Error("Function not implemented.");
+        onSubmit={function (values): void {
+          console.log({ values });
+          setOutput(values);
         }}
         endPoint={"/users/create"}
       />
+      {isNotEmptyObject(output)
+        ? Object.entries(output).map(([key, value]: [string, any]) => (
+            <p key={key}>
+              {key} - {value}
+            </p>
+          ))
+        : null}
     </div>
   );
 };

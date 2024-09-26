@@ -5,7 +5,7 @@ import ButtonComponent from "../button.component";
 interface FormProps {
   inputs: InputProps[];
   columns: number;
-  onSubmit: () => void;
+  onSubmit: (value: Object) => void;
   endPoint: string;
 }
 
@@ -39,7 +39,7 @@ function FormContainer({ inputs, columns, onSubmit, endPoint }: FormProps) {
   return (
     <form className={`grid grid-cols-${columns} gap-4`}>
       {sanitizedInputs}
-      <ButtonComponent label="Submit" onClick={onSubmit} />
+      <ButtonComponent label="Submit" onClick={() => onSubmit(inputValues)} />
     </form>
   );
 }

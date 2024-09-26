@@ -23,8 +23,8 @@ export interface InputProps {
   labelPlacement?: "inside" | "outside" | "outside-left";
   isRequired?: boolean;
   isReadOnly?: boolean;
-  onChange: ChangeEventHandler<HTMLInputElement>;
-  onValueChange: (value: string) => void;
+  // onChange: ChangeEventHandler<HTMLInputElement>;
+  onValueChange?: (value: string) => void;
   value: string;
   name: string;
 }
@@ -45,7 +45,7 @@ function InputComponent({
   labelPlacement = "inside",
   isRequired = false,
   isReadOnly = false,
-  onChange,
+  // onChange,
   onValueChange,
   value,
   name,
@@ -66,7 +66,7 @@ function InputComponent({
       fullWidth={fullWidth}
       labelPlacement={labelPlacement}
       isRequired={isRequired}
-      onChange={onChange}
+      // onChange={onChange}
       onValueChange={onValueChange}
       isReadOnly={isReadOnly}
       value={value}

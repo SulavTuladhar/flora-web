@@ -12,6 +12,7 @@ interface CardProps extends ButtonProps {
   ImgWidth?: number;
   cardTitle: string;
   btnLabel: string;
+  onBtnClick: () => void;
 }
 
 export default function CardComponent({
@@ -22,6 +23,7 @@ export default function CardComponent({
   ImgWidth = 200,
   cardTitle,
   btnLabel,
+  onBtnClick,
 }: CardProps) {
   return (
     <Card isFooterBlurred radius="lg" className="border-none w-fit">
@@ -41,6 +43,9 @@ export default function CardComponent({
           color="default"
           radius="lg"
           size="sm"
+          onClick={function (): void {
+            throw new Error("Function not implemented.");
+          }}
         />
       </CardFooter>
     </Card>
