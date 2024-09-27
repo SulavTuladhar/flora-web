@@ -18,11 +18,6 @@ import clsx from "clsx";
 import { siteConfig } from "@/config/site";
 import { ThemeSwitch } from "@/components/theme-switch";
 
-
-export const Navbar = () => {
-
-
-  return (
-   <>Hello</>
-  );
+export const NavBar = () => {
+  return <>Hello</>;
 };
