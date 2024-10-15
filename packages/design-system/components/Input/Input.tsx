@@ -47,8 +47,8 @@ function InputComponent({
   isReadOnly = false,
   // onChange,
   onValueChange,
-  value,
-  name,
+  value = "",
+  name = "",
 }: InputProps) {
   return (
     <Input
