@@ -3,6 +3,7 @@ import InputComponent, { InputProps } from "../Input/Input";
 import ButtonComponent from "../button.component";
 import { Controller, useForm } from "react-hook-form";
 import { input } from "@nextui-org/theme";
+import { convertToZodSchema } from "@/packages/core/utils/form.schema";
 interface FormInput {
   [any: string]: {
     name: string;
@@ -21,17 +22,16 @@ interface InputValues {
 }
 
 const registerOptions = {
-  name: { required: "Name is required" },
-  email: { required: "Email is required" },
+  name: { type: "string", required: true },
   password: {
-    required: "Password is required",
-    minLength: {
-      value: 8,
-      message: "Password must have at least 8 characters",
-    },
+    type: "string",
+    required: true,
+    // minLength: {
+    //   value: 8,
+    //   message: "Password must have at least 8 characters",
+    // },
   },
 };
-
 function FormContainer({ inputs, columns, onSubmit, endPoint }: FormProps) {
   const {
     register,
