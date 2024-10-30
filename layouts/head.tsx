@@ -6,7 +6,7 @@ import { siteConfig } from "@/config/site";
 export const Head = () => {
   return (
     <NextHead>
-      <title>{siteConfig.name}</title>
+      <title>Google Review Sentiment Analysis</title>
       <meta key="title" content={siteConfig.name} property="og:title" />
       <meta content={siteConfig.description} property="og:description" />
       <meta content={siteConfig.description} name="description" />

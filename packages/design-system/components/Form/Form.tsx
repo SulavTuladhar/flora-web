@@ -4,6 +4,7 @@ import ButtonComponent from "../button.component";
 import { Controller, useForm } from "react-hook-form";
 import { input } from "@nextui-org/theme";
 import { convertToZodSchema } from "@/packages/core/utils/form.schema";
+
 interface FormInput {
   [any: string]: {
     name: string;
@@ -32,6 +33,7 @@ const registerOptions = {
     // },
   },
 };
+
 function FormContainer({ inputs, columns, onSubmit, endPoint }: FormProps) {
   const {
     register,
@@ -53,7 +55,7 @@ function FormContainer({ inputs, columns, onSubmit, endPoint }: FormProps) {
               errorMessage={undefined}
               isInvalid={false}
               value={""}
-              name={""}
+              name={key}
             />
           )}
         />

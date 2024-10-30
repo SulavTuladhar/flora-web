@@ -26,7 +26,7 @@ export interface ButtonProps {
   startContent?: ReactNode;
   classname?: string;
   label: string;
-  onClick: () => void;
+  onClick: (e: any) => void;
 }
 export default function ButtonComponent({
   variant = "solid",
